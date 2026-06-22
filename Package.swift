@@ -43,7 +43,6 @@ let package = Package(
         .target(
             name: "StosSign",
             dependencies: [
-                .product(name: "Zsign", package: "Zsign-Package", condition: .when(platforms: [.linux, .android, .wasi, .windows,])),
                 "StosSign_Certificate",
                 "StosSign_Auth",
                 "StosSign_API",
