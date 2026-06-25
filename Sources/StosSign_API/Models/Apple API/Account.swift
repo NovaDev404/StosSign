@@ -14,7 +14,7 @@ public class Account: Codable {
     public let lastName: String
     private var fallbackFirstName: String = ""
     private var fallbackLastName: String = ""
-    var name: String {
+    public var name: String {
         return firstName + " " + lastName
     }
     
