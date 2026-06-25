@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class Account: Codable {
+public class Account: Codable, Hashable {
     public let appleID: String
     public let identifier: Int
     public let firstName: String
@@ -16,6 +16,20 @@ public class Account: Codable {
     private var fallbackLastName: String = ""
     public var name: String {
         return firstName + " " + lastName
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(appleID)
+        hasher.combine(identifier)
+        hasher.combine(firstName)
+        hasher.combine(lastName)
+    }
+    
+    public static func == (lhs: Account, rhs: Account) -> Bool {
+        return lhs.appleID == rhs.appleID &&
+               lhs.identifier == rhs.identifier &&
+               lhs.firstName == rhs.firstName &&
+               lhs.lastName == rhs.lastName
     }
     
     required public init(from decoder: Decoder) throws {
