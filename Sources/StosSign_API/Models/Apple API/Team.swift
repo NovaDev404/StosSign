@@ -15,7 +15,7 @@ public enum TeamType: Int, Codable {
 }
 
 
-public struct Team {
+public struct Team: Hashable {
     public var name: String
     public var identifier: String
     public var type: TeamType
